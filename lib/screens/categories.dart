@@ -6,12 +6,13 @@ import 'package:meals_app/model/category.dart';
 import 'package:meals_app/model/meals.dart';
 
 class Categories extends StatelessWidget {
-  const Categories({super.key ,required this.onToggleFavorite});
+  const Categories({super.key ,required this.onToggleFavorite , required this.availabeMeals});
 
  final void Function(Meal meal) onToggleFavorite;
+ final List<Meal> availabeMeals;
 
   void _selectCategory(BuildContext context, Category category) {
-    final filteredMeals = dummyMeals
+    final filteredMeals = availabeMeals
         .where((meal) => meal.categories.contains(category.id))
         .toList();
 
